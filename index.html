@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3 Look Trainers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #111;
+        color: #eee;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem 2rem;
+        background-color: #181818;
+        border-bottom: 1px solid #222;
+        position: relative;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+        color: #fff;
+    }
+
+
+    .divider {
+        width: 100%;
+        height: 2px;
+        background-color: #222;  /* Subtle contrast */
+        margin-top: 0;
+        margin-bottom: 3rem;     /* Spacing before description */
+    }
+
+    .content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 6rem;     /* Moves everything down */
+        padding-bottom: 2rem;  /* Ensures spacing above footer */
+    }
+
+    .description {
+        max-width: 800px;
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 1rem;
+        color: #ccc;
+        line-height: 1.6;
+        padding: 0 1rem;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        width: 100%;
+        max-width: 900px;
+    }
+
+    .card {
+        background-color: #181818;
+        border: 1px solid #222;
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        transition: 0.2s ease all;
+        cursor: pointer;
+        text-decoration: none;
+        color: #eee;
+    }
+
+    .card:hover {
+        border-color: #444;
+        transform: translateY(-4px);
+        background-color: #1d1d1d;
+    }
+
+    .card h2 {
+        margin-top: 0;
+        margin-bottom: 0.7rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .card p {
+        margin: 0;
+        opacity: 0.8;
+        line-height: 1.4;
+        font-size: 0.95rem;
+    }
+
+    footer {
+        text-align: center;
+        padding: 1rem;
+        color: #777;
+        font-size: 0.85rem;
+        border-top: 1px solid #222;
+        background-color: #181818;
+    }
+  </style>
+
+</head>
+<body>
+
+  <header>
+    <h1>3 Look Trainers</h1>
+  </header>
+  <div class="divider"></div>
+
+  <div class="content">
+
+    <div class="description">
+        Both trainers have a few default lists of cases, but they also allow you
+        to create and modify your lists of cases. There is an option to use karnotation as well.
+        Both trainer provide random scrambles. Try it out!
+    </div>
+
+    <div class="grid">
+
+      <a href="/OBLTrainer/" class="card">
+        <h2>OBL Trainer</h2>
+        <p>Options: go through each case once, case bundling, get OBLP memo.</p>
+      </a>
+
+      <a href="/PBLTrainer/" class="card">
+        <h2>PBL Trainer</h2>
+        <p>Options: go through each case once, case weights.</p>
+      </a>
+
+    </div>
+  </div>
+
+  <footer>
+    OBL Trainer by Matt. PBL Trainer by @bqro and Matt.
+  </footer>
+
+</body>
+</html>

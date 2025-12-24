@@ -1,0 +1,6 @@
+[submodule "OBLTrainer"]
+	path = OBLTrainer
+	url = https://github.com/Mattttttttttttttttttttttttttttttt/OBLTrainer.git
+[submodule "PBLTrainer"]
+	path = PBLTrainer
+	url = https://github.com/DarksChaos/Square1Trainer.git
