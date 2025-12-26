@@ -68,7 +68,7 @@
         max-width: 800px;
         text-align: center;
         margin-bottom: 3rem;
-        font-size: 1rem;
+        font-size: 1.2rem;
         color: #ccc;
         line-height: 1.6;
         padding: 0 1rem;
@@ -83,6 +83,9 @@
     }
 
     .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         background-color: #181818;
         border: 1px solid #222;
         border-radius: 8px;
@@ -115,6 +118,13 @@
         font-size: 0.95rem;
     }
 
+    .card .credit {
+        margin-top: 1.5rem;
+        font-size: 0.8rem;
+        color: #888;
+        opacity: 0.7;
+    }
+
     footer {
         text-align: center;
         padding: 1rem;
@@ -122,6 +132,10 @@
         font-size: 0.85rem;
         border-top: 1px solid #222;
         background-color: #181818;
+    }
+
+    @media screen and (max-width: 530px) { /*when the cards split two lines*/
+      .content {padding-top: 1rem;}
     }
   </style>
 
@@ -144,20 +158,26 @@
     <div class="grid">
 
       <a href="/OBLTrainer/" class="card">
-        <h2>OBL Trainer</h2>
-        <p>Options: go through each case once, case bundling, get OBLP memo.</p>
+        <div>
+          <h2>OBL Trainer</h2>
+          <p>Options: go through each case once, case bundling, get OBLP memo.</p>
+        </div>
+        <p class="credit">Forked from the PBL trainer and developed by Matt.</p>
       </a>
 
       <a href="/PBLTrainer/" class="card">
-        <h2>PBL Trainer</h2>
-        <p>Options: go through each case once, case weights.</p>
+        <div>
+          <h2>PBL Trainer</h2>
+          <p>Options: go through each case once, case weights.</p>
+        </div>
+        <p class="credit">Created by @bqro, largely maintained by Matt.</p>
       </a>
 
     </div>
   </div>
 
   <footer>
-    OBL Trainer by Matt. PBL Trainer by @bqro and Matt.
+    This website by Matt and Abid.
   </footer>
 
 </body>
