@@ -1,6 +1,6 @@
 // serviceworker.js
 
-const CACHE_NAME = 'squan-trainer-cache-v1.1.4';
+const CACHE_NAME = 'squan-trainer-cache-v1.1.5';
 const FILES_TO_CACHE = [
     '/',
     '/index.html',
