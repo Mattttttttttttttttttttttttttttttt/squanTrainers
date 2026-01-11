@@ -1,6 +1,8 @@
 // serviceworker.js
 
-const CACHE_NAME = 'squan-trainer-cache-v1.1.5';
+// hi matt you run this:
+// git submodule update --remote --merge
+const CACHE_NAME = 'squan-trainer-cache-v1.1.6';
 const FILES_TO_CACHE = [
     '/',
     '/index.html',
