@@ -2,7 +2,7 @@
 
 // hi matt you run this:
 // git submodule update --remote --merge
-const CACHE_NAME = 'squan-trainer-cache-v1.1.7';
+const CACHE_NAME = 'squan-trainer-cache-v1.1.8';
 const FILES_TO_CACHE = [
     '/',
     '/index.html',
