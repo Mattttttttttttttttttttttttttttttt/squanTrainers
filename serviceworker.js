@@ -57,7 +57,7 @@ self.addEventListener('install', (event) => {
                 for (const file of CRITICAL_FILES) {
                     try {
                         console.log('[ServiceWorker] Caching:', file);
-                        await cache.add(file);
+                        await cache.add(new Request(file, { cache: 'reload' }));
                         console.log('[ServiceWorker] ✓ Cached:', file);
                     } catch (error) {
                         console.error('[ServiceWorker] ✗ Failed to cache critical file:', file, error);
@@ -69,7 +69,7 @@ self.addEventListener('install', (event) => {
                 for (const file of OPTIONAL_FILES) {
                     try {
                         console.log('[ServiceWorker] Caching optional:', file);
-                        await cache.add(file);
+                        await cache.add(new Request(file, { cache: 'reload' }));
                         console.log('[ServiceWorker] ✓ Cached optional:', file);
                     } catch (error) {
                         console.warn('[ServiceWorker] ✗ Failed to cache optional file (non-critical):', file, error);
@@ -80,7 +80,7 @@ self.addEventListener('install', (event) => {
                 for (const url of EXTERNAL_RESOURCES) {
                     try {
                         console.log('[ServiceWorker] Caching external:', url);
-                        await cache.add(url);
+                        await cache.add(new Request(url, { cache: 'reload' }));
                         console.log('[ServiceWorker] ✓ Cached external:', url);
                     } catch (error) {
                         console.warn('[ServiceWorker] ✗ Failed to cache external (non-critical):', url, error);
