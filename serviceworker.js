@@ -2,7 +2,7 @@
 
 // hi matt you run this:
 // git submodule update --remote --merge
-const CACHE_NAME = 'squan-trainer-cache-v1.2.6';
+const CACHE_NAME = 'squan-trainer-cache-v1.2.7';
 
 // Critical files - must cache successfully
 const CRITICAL_FILES = [
