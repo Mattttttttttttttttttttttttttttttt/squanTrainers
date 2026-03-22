@@ -10,7 +10,7 @@
   <script>
     if ('serviceWorker' in navigator) {
         let refreshing = false;
-        
+
         // Detect when a new service worker is waiting
         navigator.serviceWorker.addEventListener('controllerchange', () => {
             if (!refreshing) {
@@ -23,17 +23,17 @@
         navigator.serviceWorker.register('/serviceworker.js')
             .then((registration) => {
                 console.log('[SW] Service Worker registered:', registration);
-                
+
                 // Check for updates periodically
                 setInterval(() => {
                     registration.update();
                 }, 60000); // Check every minute
-                
+
                 // If there's an update waiting, activate it
                 registration.addEventListener('updatefound', () => {
                     const newWorker = registration.installing;
                     console.log('[SW] New service worker found');
-                    
+
                     newWorker.addEventListener('statechange', () => {
                         if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
                             console.log('[SW] New service worker installed, will activate on next page load');
@@ -167,7 +167,7 @@
     }
 
     @media screen and (max-width: 530px) { /*when the cards split two lines*/
-      .content {padding-top: 1rem;}
+        .content {padding-top: 1rem;}
     }
   </style>
 

@@ -2,7 +2,7 @@
 
 // hi matt you run this:
 // git submodule update --remote --merge
-const CACHE_NAME = 'squan-trainer-cache-v1.2.3';
+const CACHE_NAME = 'squan-trainer-cache-v1.2.4';
 
 // Critical files - must cache successfully
 const CRITICAL_FILES = [
@@ -19,10 +19,17 @@ const CRITICAL_FILES = [
     '/OBLTrainer/defaultlists.json',
     '/OBLTrainer/caticon.ico',
     '/PBLTrainer/index.html',
-    '/PBLTrainer/index.css',
-    '/PBLTrainer/cube.js',
-    '/PBLTrainer/scrambler.js',
-    '/PBLTrainer/defaultlists.json',
+    '/PBLTrainer/css/index.css',
+    '/PBLTrainer/script/cube.js',
+    '/PBLTrainer/script/filter.js',
+    '/PBLTrainer/script/karnify.js',
+    '/PBLTrainer/script/optimizer.js',
+    '/PBLTrainer/script/pbl-data.js',
+    '/PBLTrainer/script/pbl_group_maps.js',
+    '/PBLTrainer/script/scrambler.js',
+    '/PBLTrainer/script/utils.js',
+    '/PBLTrainer/script/worker.js',
+    '/PBLTrainer/json/defaultlists.json',
     '/PBLTrainer/favicon.ico'
 ];
 
@@ -44,7 +51,7 @@ self.addEventListener('install', (event) => {
         caches.open(CACHE_NAME)
             .then(async (cache) => {
                 console.log('[ServiceWorker] Caching critical files');
-                
+
                 // Cache critical files one by one
                 for (const file of CRITICAL_FILES) {
                     try {
@@ -56,7 +63,7 @@ self.addEventListener('install', (event) => {
                         throw error; // Stop installation if critical file fails
                     }
                 }
-                
+
                 // Cache optional files (non-critical)
                 for (const file of OPTIONAL_FILES) {
                     try {
@@ -67,7 +74,7 @@ self.addEventListener('install', (event) => {
                         console.warn('[ServiceWorker] ✗ Failed to cache optional file (non-critical):', file, error);
                     }
                 }
-                
+
                 // Cache external resources (non-critical)
                 for (const url of EXTERNAL_RESOURCES) {
                     try {
@@ -120,22 +127,22 @@ self.addEventListener('fetch', (event) => {
     if (!event.request.url.startsWith('http')) {
         return;
     }
-    
+
     console.log('[ServiceWorker] Fetch:', event.request.url, 'Mode:', event.request.mode);
-    
+
     // For navigation requests, always go to network (don't intercept)
     if (event.request.mode === 'navigate') {
         console.log('[ServiceWorker] Navigation request, bypassing to network:', event.request.url);
         return; // Let the browser handle it normally
     }
-    
+
     // For HTML documents (non-navigation), use stale-while-revalidate
     if (event.request.headers.get('accept')?.includes('text/html')) {
         event.respondWith(
             (async () => {
                 const cache = await caches.open(CACHE_NAME);
                 let cachedResponse = await cache.match(event.request);
-                
+
                 // Fetch from network in background
                 const fetchPromise = fetch(event.request)
                     .then((networkResponse) => {
@@ -145,7 +152,7 @@ self.addEventListener('fetch', (event) => {
                         return networkResponse;
                     })
                     .catch(() => cachedResponse);
-                
+
                 return cachedResponse || fetchPromise;
             })()
         );
