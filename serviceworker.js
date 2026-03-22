@@ -2,7 +2,7 @@
 
 // hi matt you run this:
 // git submodule update --remote --merge
-const CACHE_NAME = 'squan-trainer-cache-v1.2.4';
+const CACHE_NAME = 'squan-trainer-cache-v1.2.5';
 
 // Critical files - must cache successfully
 const CRITICAL_FILES = [
@@ -40,7 +40,8 @@ const OPTIONAL_FILES = [
 
 // External resources to cache separately (can fail without breaking install)
 const EXTERNAL_RESOURCES = [
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
+    'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2'  // add this
 ];
 
 
